@@ -1,0 +1,31 @@
+from datetime import date 
+  
+def calculateAge(birth): 
+    today = date.today() 
+    try:  
+        bd = birth.replace(year = today.year) 
+  
+    # for leap year
+    except ValueError:  
+        bd = birth.replace(year = today.year, 
+                  month = born.month + 1, day = 1) 
+  
+    if bd > today: 
+        return today.year - birth.year - 1
+    else: 
+        return today.year - birth.year 
+          
+
+#ask user for date of birth
+a = int(input("enter birth year: "))
+
+b = int(input("enter month of born: "))
+
+c = int(input("enter day of birth: "))
+
+#output value
+print(calculateAge(date(a, b, c)), "years") 
+
+
+
+
