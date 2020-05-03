@@ -1,0 +1,89 @@
+#import arrays
+from array import *
+
+#display list of features
+print("\n\t0=addition\n\t2=substractio\n\t2=multiplication\n\t3=division\n\t4=modulus")
+print("\n\ta=square root \n\tb=cube root\n\tc=number with any mentioned root")
+print("\n\tA=more than two numbers addition\n\tB=more then two numbers multiplication")
+
+#defing a two values calculator
+def calc(a,b,r):
+
+    if (r=='0'):
+        c = a+b
+        print("the value is",c)
+    elif (r=='1'):
+        c=a-b
+        print("the value is",c)
+    elif(r=='2'):
+        e=a*b
+        print("the value is",e)
+    elif(r=='3'):
+        f=a/b
+        print("the value is",f)
+    elif(r=='4'):
+        g=a%b
+        print("the value is",g)
+
+
+print("\n===========================^_^==================================")
+r=str(input("\tenter your option:"))
+
+#it is for 2 values simple calculator
+if (r<='4')and(r>='0'):
+  a=int(input("\n\tenter 1st value:"))
+  b=int(input("\n\tenter 2nd value:"))
+  print("the values that you have been typed is",a,"and",b)
+  calc(a, b, r)
+
+#it is for small alphabets values
+
+elif (r=='a')or(r=='b')or(r=='c'):
+    if (r=='a'):
+        h=int(input('enter your value:'))
+        print("value is",h**2)
+    if (r=='b'):
+        i=int(input('enter your values:'))
+        print("value is",i**3)
+    if (r=='c'):
+        j=int(input("enter power number:"))
+        k=int(input("enter your value:"))
+        print("the value is",j**k)
+
+#this section for capital letters
+elif (r=='A')or(r=='B')or(r=='C'):
+    if(r=='A'):
+        arr=array('b',[ ])
+        l=int(input("how many numbers are need to add:"))
+        for i in range(l):
+            n=int(input("enter value:"))
+            arr.append(n)
+            a=(sum(arr))
+
+        print("the sum of value is:",a)
+    if(r=='B'):
+        arr=array('b',[ ])
+        l=int(input("how many numbers are need to multiply:"))
+        for i in range(l):
+            n=int(input("enter value:"))
+            arr.append(n)
+
+
+        def multiplyList(arr):
+
+            # Multiply elements one by one
+            result = 1
+            for x in arr:
+                result = result * x
+            return result
+
+
+        print(multiplyList(arr))
+
+#if in case mistake option it will displayed
+
+else :
+    print("please try to give correct option man ^_^ ^_^ ^_^ ^_^ ^_^ ^_^ !!!!!!!!!!")
+
+#made by sumit ^_^
+print("made by sumit ^_^")
