@@ -2,12 +2,12 @@
 from array import *
 
 #display list of features
-print("\n\t0=addition\n\t2=substractio\n\t2=multiplication\n\t3=division\n\t4=modulus")
+print("\n\t0=addition\n\t1=substraction\n\t2=multiplication\n\t3=division\n\t4=modulus")
 print("\n\ta=square root \n\tb=cube root\n\tc=number with any mentioned root")
 print("\n\tA=more than two numbers addition\n\tB=more then two numbers multiplication")
-
+def main():
 #defing a two values calculator
-def calc(a,b,r):
+ def calc(a,b,r):
 
     if (r=='0'):
         c = a+b
@@ -26,11 +26,11 @@ def calc(a,b,r):
         print("the value is",g)
 
 
-print("\n===========================^_^==================================")
-r=str(input("\tenter your option:"))
+ print("\n===========================^_^==================================")
+ r=str(input("\tenter your option:"))
 
 #it is for 2 values simple calculator
-if (r<='4')and(r>='0'):
+ if (r<='4')and(r>='0'):
   a=int(input("\n\tenter 1st value:"))
   b=int(input("\n\tenter 2nd value:"))
   print("the values that you have been typed is",a,"and",b)
@@ -38,7 +38,7 @@ if (r<='4')and(r>='0'):
 
 #it is for small alphabets values
 
-elif (r=='a')or(r=='b')or(r=='c'):
+ elif (r=='a')or(r=='b')or(r=='c'):
     if (r=='a'):
         h=int(input('enter your value:'))
         print("value is",h**2)
@@ -51,7 +51,7 @@ elif (r=='a')or(r=='b')or(r=='c'):
         print("the value is",j**k)
 
 #this section for capital letters
-elif (r=='A')or(r=='B')or(r=='C'):
+ elif (r=='A')or(r=='B')or(r=='C'):
     if(r=='A'):
         arr=array('b',[ ])
         l=int(input("how many numbers are need to add:"))
@@ -82,8 +82,16 @@ elif (r=='A')or(r=='B')or(r=='C'):
 
 #if in case mistake option it will displayed
 
-else :
+ else :
     print("please try to give correct option man ^_^ ^_^ ^_^ ^_^ ^_^ ^_^ !!!!!!!!!!")
 
 #made by sumit ^_^
-print("made by sumit ^_^")
+ print("made by sumit ^_^")
+
+for i in range(10000000):
+ main()
+ n=str(input("exit(if you wanted to exit then type 0 and click enter):"))
+ if (n==0):
+     break
+
+
