@@ -1,0 +1,252 @@
+# A SIMPLE CAFE TOTAL BILLING SYSTEM 
+from tkinter import*
+import random
+import time
+#create a widows
+from tkinter import *
+
+
+root = Tk()
+root.geometry("863x580+0+0")
+root.resizable(False,False)
+root.title("SUMIT CAFE BILLING SYSTEM")
+
+
+
+root.configure(bg="red")
+
+
+
+# here relief means border design
+Tops = Frame(root,bg="white",width = 1600,height=50,relief=SUNKEN)
+Tops.pack(side=TOP)
+
+f1 = Frame(root,width = 600,height=700,relief=SUNKEN)
+f1.pack(side=LEFT)
+
+f2 = Frame(root ,width = 400,height=700,relief=SUNKEN)
+f2.pack(side=RIGHT)
+#------------------TIME--------------
+localtime=time.asctime(time.localtime(time.time()))
+#-----------------INFO TOP------------
+lblinfo = Label(Tops, font=( 'aria' ,30, 'bold' ),text="SUMIT CAFE BILLING SYSTEM",fg="Black",bd=10,anchor='w')
+lblinfo.grid(row=0,column=0)
+lblinfo = Label(Tops, font=( 'aria' ,20, ),text=localtime,fg="steel blue",anchor=W)
+lblinfo.grid(row=1,column=0)
+
+
+def Ref():
+    #for order number purpose
+    x=random.randint(12989900, 50876990)
+    randomRef = str(x)
+    rand.set(randomRef)
+
+    #getting data from as previously created locations
+    cof =int(Fries.get())
+    colfries= int(Largefries.get())
+    cob= int(Burger.get())
+    cofi= int(Filet.get())
+    cochee= int(CHOCLATE.get())
+    codr= int(Drinks.get())
+
+    #to make items into its price
+    costoffries = cof*60
+    costoflargefries = colfries*100
+    costofburger = cob*55
+    costoffilet = cofi*50
+    costofchoclate = cochee*20
+    costofdrinks = codr*35
+
+    #total costs calculation purpose
+    costofmeal = "Rs.",str('%i.2'% (costoffries +  costoflargefries + costofburger + costoffilet + costofchoclate + costofdrinks))
+    PayTax=((costoffries +  costoflargefries + costofburger + costoffilet +  costofchoclate + costofdrinks)*0.3)
+    Totalcost=(costoffries +  costoflargefries + costofburger + costoffilet  + costofchoclate + costofdrinks)
+    Ser_Charge=((costoffries +  costoflargefries + costofburger + costoffilet + costofchoclate + costofdrinks)/99)
+    Service="Rs.",str('%i.2'% Ser_Charge)
+    OverAllCost="Rs.",int( PayTax + Totalcost + Ser_Charge)
+    PaidTax="Rs.",str('%i.2'% PayTax)
+
+    #to set data into its location
+    Service_Charge.set(Service)
+    cost.set(costofmeal)
+    Tax.set(PaidTax)
+    Subtotal.set(costofmeal)
+    Total.set(OverAllCost)
+
+
+def qexit():
+    #to get exit
+    root.destroy()
+
+def reset():
+    rand.set("")
+    #here insert is used to create an initial value as 0 before typed
+    rand.insert(0, "0")
+    Fries.set("")
+    Fries.insert(0, "0")
+    Largefries.set("")
+    Largefries.insert(0, "0")
+    Burger.set("")
+    Burger.insert(0, "0")
+    Filet.set("")
+    Filet.insert(0, "0")
+    Subtotal.set("")
+    Subtotal.insert(0, "0")
+    Total.set("")
+    Total.insert(0, "0")
+    Service_Charge.set("")
+    Service_Charge.insert(0, "0")
+    Drinks.set("")
+    Drinks.insert(0, "0")
+    Tax.set("")
+    Tax.insert(0, "0")
+    cost.set("")
+    cost.insert(0, "0")
+    CHOCLATE.set("")
+    CHOCLATE.insert(0, "0")
+
+
+#---------------------------------------------------------------------------------------
+rand = StringVar()
+Fries = StringVar()
+Largefries = StringVar()
+Burger = StringVar()
+Filet = StringVar()
+Subtotal = StringVar()
+Total = StringVar()
+Service_Charge = StringVar()
+Drinks = StringVar()
+Tax = StringVar()
+cost = StringVar()
+CHOCLATE = StringVar()
+
+#it is for order no purpose
+lblreference = Label(f1, font=( 'aria' ,16, 'bold' ),text="Order No.",fg="brown",bd=20,anchor='w')
+lblreference.grid(row=0,column=0)
+#state:
+#The default is state=NORMAL, but you can use state=DISABLED to gray out the control and
+# make it unresponsive. If the cursor is currently over the checkbutton, the state is ACTIVE.
+txtreference = Entry(f1,font=('ariel' ,16,'bold'), textvariable=rand , bd=6,insertwidth=6,state=DISABLED)
+txtreference.grid(row=0,column=1)
+
+lblfries = Label(f1, font=( 'aria' ,16, 'bold' ),text=" FRECH FRIES ",fg="blue",bd=10,anchor='w')
+lblfries.grid(row=2,column=0)
+txtfries = Entry(f1,font=('ariel' ,16,'bold'), textvariable=Fries , bd=6,insertwidth=4,bg="green" ,justify='right')
+txtfries.insert(0, "0")
+txtfries.grid(row=2,column=1)
+
+lblLargefries = Label(f1, font=( 'aria' ,16, 'bold' ),text="LARGEFRIES ",fg="blue",bd=10,anchor='w')
+lblLargefries.grid(row=3,column=0)
+txtLargefries = Entry(f1,font=('ariel' ,16,'bold'), textvariable=Largefries , bd=6,insertwidth=4,bg="green" ,justify='right')
+txtLargefries.insert(0, "0")
+txtLargefries.grid(row=3,column=1)
+
+
+lblburger = Label(f1, font=( 'aria' ,16, 'bold' ),text="BURGER ",fg="blue",bd=10,anchor='w')
+lblburger.grid(row=4,column=0)
+txtburger = Entry(f1,font=('ariel' ,16,'bold'), textvariable=Burger , bd=6,insertwidth=4,bg="green" ,justify='right')
+txtburger.insert(0, "0")
+txtburger.grid(row=4,column=1)
+
+lblFilet = Label(f1, font=( 'aria' ,16, 'bold' ),text="PIZZA ",fg="blue",bd=10,anchor='w')
+lblFilet.grid(row=5,column=0)
+txtFilet = Entry(f1,font=('ariel' ,16,'bold'), textvariable=Filet , bd=6,insertwidth=4,bg="green" ,justify='right')
+txtFilet .insert(0, "0")
+txtFilet.grid(row=5,column=1)
+
+lblCHOCLATE = Label(f1, font=( 'aria' ,16, 'bold' ),text="CHOCLATE",fg="blue",bd=10,anchor='w')
+lblCHOCLATE.grid(row=6,column=0)
+txtCHOCLATE = Entry(f1,font=('ariel' ,16,'bold'), textvariable=CHOCLATE , bd=6,insertwidth=4,bg="green" ,justify='right')
+txtCHOCLATE .insert(0, "0")
+txtCHOCLATE.grid(row=6,column=1)
+
+
+lblDrinks = Label(f1, font=( 'aria' ,16, 'bold' ),text="DRINKS",fg="blue",bd=10,anchor='w')
+lblDrinks.grid(row=1,column=0)
+txtDrinks = Entry(f1,font=('ariel' ,16,'bold'), textvariable=Drinks , bd=6,insertwidth=4,bg="green" ,justify='right')
+txtDrinks.insert(0, "0")
+txtDrinks.grid(row=1,column=1)
+
+#---------------------------outputs blocks-----------------------------------------------------------
+
+lblcost = Label(f1, font=( 'aria' ,16, 'bold' ),text="Total Items Cost:",fg="black",bd=10,anchor='w')
+lblcost.grid(row=2,column=2)
+txtcost = Entry(f1,font=('ariel' ,16,'bold'), textvariable=cost , bd=6,insertwidth=4,justify='right',state=DISABLED,width="15")
+txtcost.grid(row=2,column=3)
+
+lblService_Charge = Label(f1, font=( 'aria' ,16, 'bold' ),text="Service Charge:",fg="black",bd=10,anchor='w')
+lblService_Charge.grid(row=3,column=2)
+txtService_Charge = Entry(f1,font=('ariel' ,16,'bold'), textvariable=Service_Charge , bd=6,insertwidth=4,justify='right',state=DISABLED,width="15")
+txtService_Charge.grid(row=3,column=3)
+
+lblTax = Label(f1, font=( 'aria' ,16, 'bold' ),text="Tax And 'GST':",fg="black",bd=10,anchor='w')
+lblTax.grid(row=4,column=2)
+txtTax = Entry(f1,font=('ariel' ,16,'bold'), textvariable=Tax , bd=6,insertwidth=4,justify='right',state=DISABLED,width="15")
+txtTax.grid(row=4,column=3)
+
+lblSubtotal = Label(f1, font=( 'aria' ,16, 'bold' ),text="Subtotal:",fg="black",bd=10,anchor='w')
+lblSubtotal.grid(row=5,column=2)
+txtSubtotal = Entry(f1,font=('ariel' ,16,'bold'), textvariable=Subtotal , bd=6,insertwidth=4 ,justify='right',state=DISABLED,width="15")
+txtSubtotal.grid(row=5,column=3)
+
+lblTotal = Label(f1, font=( 'aria' ,16, 'bold' ),text="Total:",fg="red",bg="yellow",bd=10,anchor='w')
+lblTotal.grid(row=6,column=2)
+txtTotal = Entry(f1,font=('ariel' ,16,'bold'), textvariable=Total , bd=6,insertwidth=4 ,justify='left',state=DISABLED,width="18")
+txtTotal.grid(row=6,column=3)
+
+#-----------------------------------------buttons------------------------------------------
+lblTotal = Label(f1,text="---------------------",fg="white")
+lblTotal.grid(row=7,columnspan=3)
+
+btnTotal=Button(f1,padx=16,pady=8, bd=10 ,fg="blue",font=('ariel' ,16,'bold'),width=10, text="TOTAL", bg="sky blue",command=Ref,activebackground="red")
+btnTotal.grid(row=8, column=1)
+
+btnreset=Button(f1,padx=16,pady=8, bd=10 ,fg="blue",font=('ariel' ,16,'bold'),width=10, text="RESET", bg="sky blue",command=reset,activebackground="red")
+btnreset.grid(row=8, column=2)
+
+btnexit=Button(f1,padx=16,pady=8, bd=10 ,fg="blue",font=('ariel' ,16,'bold'),width=10, text="EXIT", bg="sky blue",command=qexit,activebackground="red")
+btnexit.grid(row=8, column=3)
+
+def price():
+    roo = Tk()
+    roo.geometry("600x220+0+0")
+    #TO FIX SIZE OF NEW PRICE WINDOW
+    roo.resizable(False,False)
+    roo.title("Price List")
+    lblinfo = Label(roo, font=('aria', 20, 'bold'), text="ITEM", fg="red", bd=5)
+    lblinfo.grid(row=0, column=0)
+    lblinfo = Label(roo, font=('aria', 15,'bold'), text="_____________", fg="sky blue", anchor=W)
+    lblinfo.grid(row=0, column=2)
+    lblinfo = Label(roo, font=('aria', 20, 'bold'), text="PRICE", fg="red", anchor=W)
+    lblinfo.grid(row=0, column=3)
+    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="  French Fries", fg="steel blue", anchor=W)
+    lblinfo.grid(row=1, column=0)
+    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="60", fg="steel blue", anchor=W)
+    lblinfo.grid(row=1, column=3)
+    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="  Large Fries ", fg="steel blue", anchor=W)
+    lblinfo.grid(row=2, column=0)
+    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="100", fg="steel blue", anchor=W)
+    lblinfo.grid(row=2, column=3)
+    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="  Burger ", fg="steel blue", anchor=W)
+    lblinfo.grid(row=3, column=0)
+    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="55", fg="steel blue", anchor=W)
+    lblinfo.grid(row=3, column=3)
+    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="  Pizza ", fg="steel blue", anchor=W)
+    lblinfo.grid(row=4, column=0)
+    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="50", fg="steel blue", anchor=W)
+    lblinfo.grid(row=4, column=3)
+    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="  Choclate", fg="steel blue", anchor=W)
+    lblinfo.grid(row=5, column=0)
+    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="20", fg="steel blue", anchor=W)
+    lblinfo.grid(row=5, column=3)
+    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="  Drinks", fg="steel blue", anchor=W)
+    lblinfo.grid(row=6, column=0)
+    lblinfo = Label(roo, font=('aria', 15, 'bold'), text="35", fg="steel blue", anchor=W)
+    lblinfo.grid(row=6, column=3)
+
+    roo.mainloop()
+
+btnprice=Button(f1,padx=16,pady=8, bd=10 ,fg="blue",font=('ariel' ,16,'bold'),width=10, text="PRICE", bg="sky blue",activebackground="red",command=price)
+btnprice.grid(row=8, column=0)
+
+root.mainloop()
