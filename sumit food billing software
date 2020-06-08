@@ -534,7 +534,7 @@ def chk_cakepiece():
 
 def price():
     roo = Tk()
-    roo.geometry("600x600+0+0")
+    roo.geometry("600x700+0+0")
     #TO FIX SIZE OF NEW PRICE WINDOW
     roo.resizable(False,False)
     roo.title("Price List")
